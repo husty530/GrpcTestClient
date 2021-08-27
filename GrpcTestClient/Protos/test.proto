@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcTestClient";
+
+package test;
+
+// コンストラクタみたいなやつ
+service Vehicle {
+  // メソッド: リクエストを出してストリームを開始してもらう
+  rpc GetStream (Request) returns (stream Reply);
+}
+
+// プロパティ: サーバーへのメッセージ
+message Request {
+  string name = 1;
+}
+
+// プロパティ:	サーバーからのメッセージ
+message Reply {
+  int32 count = 1;
+  string message = 2;
+}
+
+// 使用できる型
+// https://docs.microsoft.com/ja-jp/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types
