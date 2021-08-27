@@ -13,7 +13,7 @@ namespace GrpcTestClient
         static void Main(string[] args)
         {
             //using var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            using var channel = GrpcChannel.ForAddress("https://172.17.227.169:5000");
+            using var channel = GrpcChannel.ForAddress("http://172.17.227.169:5000");
             var client =  new Vehicle.VehicleClient(channel);
             var message = new Request { Name = "HokudaiVehicle" };
             Console.WriteLine($"client --> server : {message.Name}");
