@@ -15,7 +15,7 @@ namespace GrpcTestClient
             using var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client =  new Vehicle.VehicleClient(channel);
             var message = new Request { Name = "HokudaiVehicle" };
-            Console.WriteLine($"client --> server : {message}");
+            Console.WriteLine($"client --> server : {message.Name}");
             var stream = client.GetStream(message).ResponseStream;
             var connector = Observable.Range(0, int.MaxValue, ThreadPoolScheduler.Instance)
                 .Select(async i =>
